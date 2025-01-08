@@ -32,6 +32,29 @@ For a more user-friendly experience, access the [Vegetation Index Visualizer App
 
 ![Sample Visualization](Sample_AOI.png)
 
+## Vegetation Indices Visualized
+
+This application visualizes the following indices, retrieved from Sentinel-2 imagery:
+
+- **NDVI** - Normalized Difference Vegetation Index
+- **ARI** - Anthocyanin Reflectance Index
+- **mARI** - Modified Anthocyanin Reflectance Index
+- **CHL_REDEDGE** - Chlorophyll Red-Edge
+- **EVI** - Enhanced Vegetation Index
+- **GNDVI** - Green Normalized Difference Vegetation Index
+- **MCARI** - Modified Chlorophyll Absorption in Reflectance Index
+- **MSI** - Moisture Index
+- **NDMI** - Normalized Difference Moisture Index
+- **NDWI** - Normalized Difference Water Index
+- **NDMI STRESS** - Normalized Difference Moisture Index for Crop Moisture Stress
+- **NDCI** - Normalized Difference Chlorophyll Index
+- **PSSRB1** - Pigment Specific Simple Ratio for Chlorophyll B (800/650)
+- **SAVI** - Soil Adjusted Vegetation Index
+- **SIPI1** - Structure Insensitive Pigment Index
+- **PSRI** - Plant Senescence Reflectance Index
+
+For more information on these indices, visit [Sentinel Hub Custom Scripts](https://custom-scripts.sentinel-hub.com/custom-scripts/sentinel/sentinel-2/).
+
 ## Acknowledgments
 
 This project is a collaborative effort by the Digital Agriculture Laboratory at UC Davis, dedicated to advancing the use of remote sensing technology in agriculture.
@@ -39,4 +62,3 @@ This project is a collaborative effort by the Digital Agriculture Laboratory at 
 ## Contact
 
 For more information or support, please contact [Mohammadreza Narimani](mailto:mnarimani@ucdavis.edu).
-
