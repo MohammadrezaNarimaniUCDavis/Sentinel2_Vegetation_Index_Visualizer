@@ -30,9 +30,7 @@ Ensure you have access to Google Earth Engine. You can sign up for an account [h
 
 For a more user-friendly experience, access the [Vegetation Index Visualizer App](https://ee-mnarimani.projects.earthengine.app/view/vegetationindexvisualizer), which includes all functionalities directly within a web-based interface.
 
-## Contributing
-
-Contributions to enhance or extend the functionality of this script are welcome. Please fork this repository and submit pull requests with your suggested changes.
+![Sample Visualization](Sample_AOI.png)
 
 ## Acknowledgments
 
