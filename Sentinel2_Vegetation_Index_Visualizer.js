@@ -8,7 +8,7 @@
 // 1. Drawing Tool: Users can draw polygons on the map to define the Area of Interest (AOI).
 // 2. Date Selection: Users can input a date to filter satellite imagery.
 // 3. Cloud Masking: Sentinel-2 images are cloud-masked to remove cloudy pixels from the analysis.
-// 4. Index Visualization: Displays multiple vegetation indices (NDVI, ARI, mARI, CHL-RED-EDGE, EVI, GNDVI, MCARI, MSI, NDMI, NDWI, NDCI, PSSRb1, SAVI, SIPI, and NDMI_MoistureStress) overlaying Sentinel-2 RGB imagery. Each index is visualized with a corresponding dynamic legend.
+// 4. Index Visualization: Displays multiple vegetation indices (NDVI, ARI, mARI, CHL-RED-EDGE, EVI, GNDVI, MCARI, MSI, NDMI, NDWI, NDCI, PSSRb1, SAVI, SIPI, PSRI, and NDMI_MoistureStress) overlaying Sentinel-2 RGB imagery. Each index is visualized with a corresponding dynamic legend.
 // 5. Initial View: The map starts centered on Davis, California.
 // 6. Dynamic Legend: A legend is generated dynamically based on the selected vegetation index to assist in data interpretation.
 //**********************************************************************
@@ -65,7 +65,8 @@ var indexSelect = ui.Select({
     {label: 'Normalized Difference Chlorophyll Index (NDCI)', value: 'NDCI' },
     {label: 'Pigment Specific Simple Ratio for Chlorophyll B (PSSRb1)', value: 'PSSRb1' },
     {label: 'Soil Adjusted Vegetation Index (SAVI)', value: 'SAVI' },
-    {label: 'Structure Insensitive Pigment Index (SIPI)', value: 'SIPI' }
+    {label: 'Structure Insensitive Pigment Index (SIPI)', value: 'SIPI' },
+    {label: 'Plant Senescence Reflectance Index (PSRI)', value: 'PSRI' }
   ],
   placeholder: 'Select index',
   value: 'NDVI', // Default to NDVI
@@ -381,6 +382,23 @@ function runAnalysis() {
   
     Map.addLayer(sipiLayer, sipiVis, 'SIPI');
     addLegend('SIPI Scale', sipiVis);
+  } else if (selectedIndex === 'PSRI') {
+    var psriLayer = s2Image.expression(
+      '(B4 - B2) / B6', {
+        'B4': s2Image.select('B4'),
+        'B2': s2Image.select('B2'),
+        'B6': s2Image.select('B6')
+      }
+    ).rename('PSRI');
+  
+    var psriVis = {
+      min: -0.2,
+      max: 0.4,
+      palette: ['#313695', '#e0f3f8', '#fdae61', '#a50026']
+    };
+  
+    Map.addLayer(psriLayer, psriVis, 'PSRI');
+    addLegend('PSRI Scale', psriVis);
   }
 
   // Update message panel
